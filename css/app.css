@@ -1,0 +1,58 @@
+.v-app-bar {
+    font-family: Cooper, sans-serif;
+    text-align: center;
+}
+
+.v-footer {
+    font-family: Cooper, sans-serif;
+}
+
+#site-title {
+    font-size: x-large;
+}
+
+#packerGame {
+    text-align: center;
+    font-family: Cooper, sans-serif;
+    font-size: 2em;
+    color: #244729;
+}
+
+#bucksGame {
+    text-align: center;
+    font-family: Cooper, sans-serif;
+    font-size: 2em;
+    color: #00471a;
+}
+
+#brewerGame {
+    text-align: center;
+    font-family: Cooper, sans-serif;
+    font-size: 2em;
+    color: #212c4c;
+}
+
+.v-card {
+    text-align: center;
+    font-family: Cooper, sans-serif;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bolder;
+    font-family: Cooper, sans-serif;
+    text-decoration-line: underline;
+}
+
+.v-btn {
+    font-family: Cooper, sans-serif;
+}
+
+.v-card-title {
+    font-family: Cooper, sans-serif;
+}
+
+.v-main {
+    background-color: darkgray;
+}
+
