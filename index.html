@@ -12,6 +12,9 @@
 
     <!-- css -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 
@@ -40,7 +43,7 @@
                             <div id="packerGame">
                                 <div v-show="active">A Packer Game!</div>
                             </div>
-                            <v-img src="images/packers-logo-packers-funny.png" @mouseover="mouseOver" @click="showPackerList=!showPackerList"></v-img>
+                            <v-img id="p" src="images/packers-logo-packers-funny.png" @mouseover="mouseOver" @click="showPackerList=!showPackerList"></v-img>
                             <div v-if="showPackerList">
                                 <list class="mt-10" v-bind:items="items"></list>
                             </div>
@@ -49,7 +52,7 @@
                             <div id="bucksGame">
                                 <div v-show="active2">A Bucks Game!</div>
                             </div>
-                            <v-img src="images/bucks.png" @mouseover="active2=!active2" @click="showBucksList=!showBucksList"></v-img>
+                            <v-img id="b" src="images/bucks.png" @mouseover="active2=!active2" @click="showBucksList=!showBucksList"></v-img>
                             <div v-if="showBucksList">
                                 <list class="mt-10" v-bind:items="bucksItems"></list>
                             </div>
@@ -58,7 +61,7 @@
                             <div id="brewerGame">
                                 <div v-show="active3">A Brewer Game!</div>
                             </div>
-                            <v-img src="images/brewers-logo-2020-2.jpg" @mouseover="active3=!active3" @click="showBrewerList=!showBrewerList"></v-img>
+                            <v-img id="b2" src="images/brewers-logo-2020-2.jpg" @mouseover="active3=!active3" @click="showBrewerList=!showBrewerList"></v-img>
                             <div v-if="showBrewerList">
                                 <list class="mt-10" v-bind:items="brewerItems"></list>
                             </div>

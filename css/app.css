@@ -1,10 +1,10 @@
 .v-app-bar {
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
     text-align: center;
 }
 
 .v-footer {
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
 }
 
 #site-title {
@@ -13,46 +13,54 @@
 
 #packerGame {
     text-align: center;
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
     font-size: 2em;
     color: #244729;
 }
 
 #bucksGame {
     text-align: center;
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
     font-size: 2em;
     color: #00471a;
 }
 
 #brewerGame {
     text-align: center;
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
     font-size: 2em;
     color: #212c4c;
 }
 
 .v-card {
     text-align: center;
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
 }
 
 h3 {
     text-align: center;
     font-weight: bolder;
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
     text-decoration-line: underline;
 }
 
 .v-btn {
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
 }
 
 .v-card-title {
-    font-family: Cooper, sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
 }
 
 .v-main {
     background-color: darkgray;
+}
+
+#app .text-h5 {
+    font-family: 'Stick No Bills', sans-serif;
+}
+
+#p, #b, #b2 {
+    cursor: pointer;
 }
 
