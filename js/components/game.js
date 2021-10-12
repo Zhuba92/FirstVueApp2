@@ -1,13 +1,6 @@
-Vue.component('list', {
+Vue.component('List', {
     props: {
-        name: {
-            type: String,
-            default: "Things for the game",
-        },
-        items: {
-            type: Array,
-            required: true,
-        },
+        item: list
     },
 
     methods: {
@@ -17,11 +10,10 @@ Vue.component('list', {
     },
 
     template: `<div>
-    <h3>{{name}}</h3>
     <v-card class="mx-auto" max-width="400" color="primary" tile>
-      <list-item v-on:delete-item="deleteIt" v-for="(item, i) in items"
+      <list-item v-on:delete-item="deleteIt" v-for="(item, i) in list"
                  :item="item"
-                 :key="item.text">
+                 :key="item.name">
         <v-divider inset></v-divider>
       </list-item>
     </v-card>
@@ -30,28 +22,42 @@ Vue.component('list', {
 })
 
 
-Vue.component('listItem', {
+Vue.component('DisplayGameItems', {
     props: {
-        item: {
-            type: Object,
-            required: true,
-        },
+        item: list
     },
 
     template: `<v-list-item-content>
     <div>
       <v-list-item-content>
-        <v-list-item-title>{{item.text}}<delete-item @delete-item="$emit('delete-item', item)"></delete-item></v-list-item-title>
+        <v-list-item-title>{{item.name}}<delete-item @delete-item="$emit('delete-item', item)"></delete-item></v-list-item-title>
       </v-list-item-content>
     </div>
     </v-list-item-content>
     `
 })
 
-Vue.component('add-game-item', {
+Vue.component('DisplayPicture', {
     props: {
 
     },
+
+    template: `<div>
+    <h3 v-for="(item, i) in item" :key="item.name">{{item.name}}</h3>
+    </div>`,
+})
+
+Vue.component('DisplayGameTitle', {
+    props: {
+
+    },
+
+    template: `<div>
+    
+    </div>`,
+})
+
+Vue.component('add-game-item', {
 
     data() {
         return {

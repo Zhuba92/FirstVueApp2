@@ -15,6 +15,11 @@ const app = new Vue({
 
     data: function() {
         return {
+            list: new GameList()
+                .addItem(new GameType('Packer Game', "images/packers-logo-packers-funny.png", ['Jersey', 'Hat', 'Cash', 'Brats']))
+                .addItem(new GameType('Bucks Game', "images/bucks.png", ['Jersey', 'Hat', 'Cash']))
+                .addItem(new GameType('Brewer Game', "images/brewers-logo-2020-2.jpg", ['Jersey', 'Hat', 'Cash', 'Baseball Glove'])),
+
             active: false,
             active2: false,
             active3: false,
@@ -22,24 +27,6 @@ const app = new Vue({
             showPackerList: false,
             showBucksList: false,
             showBrewerList: false,
-
-            items: [
-                {text: 'Jersey', gameType: 'Packer game'},
-                {text: 'Hat', gameType: 'Packer game'},
-                {text: 'Cash', gameType: 'Packer game'},
-                {text: 'Brats', gameType: 'Packer game'},
-            ],
-            bucksItems: [
-                {text: 'Jersey', gameType: 'Bucks game'},
-                {text: 'Hat', gameType: 'Bucks game'},
-                {text: 'Cash', gameType: 'Bucks game'},
-            ],
-            brewerItems: [
-                {text: 'Jersey', gameType: 'Brewer game'},
-                {text: 'Hat', gameType: 'Brewer game'},
-                {text: 'Cash', gameType: 'Brewer game'},
-                {text: 'Baseball Glove', gameType: 'Brewer game'},
-            ],
         }
     },
 
