@@ -1,75 +1,82 @@
-Vue.component('List', {
+Vue.component('DisplayGameItems', {
     props: {
-        item: list
+        gameItems: Object
+    },
+
+    template: `
+      <v-row>
+          <v-col v-for="game in gameItems" cols="4">
+              <game :game="game"></game>
+          </v-col>
+      </v-row>
+    `
+})
+
+Vue.component('Game', {
+    props: {
+        game: Object
     },
 
     methods: {
         deleteIt: function(item){
-            this.items.splice(this.items.indexOf(item), 1);
+            this.game.items.splice(this.game.items.indexOf(item), 1);
         },
     },
 
-    template: `<div>
-    <v-card class="mx-auto" max-width="400" color="primary" tile>
-      <list-item v-on:delete-item="deleteIt" v-for="(item, i) in list"
-                 :item="item"
-                 :key="item.name">
-        <v-divider inset></v-divider>
-      </list-item>
-    </v-card>
-    </div>`,
+    data: () => ({
+        reveal: false,
+    }),
 
-})
-
-
-Vue.component('DisplayGameItems', {
-    props: {
-        item: list
-    },
-
-    template: `<v-list-item-content>
-    <div>
-      <v-list-item-content>
-        <v-list-item-title>{{item.name}}<delete-item @delete-item="$emit('delete-item', item)"></delete-item></v-list-item-title>
-      </v-list-item-content>
-    </div>
-    </v-list-item-content>
+    template:`
+      <v-card color="#a9a9a9" outlined>
+      <v-card-title class="justify-center">{{game.name}}</v-card-title>
+      <v-img class="rounded-lg" :src="game.image"></v-img>
+      <v-card-actions class="justify-center">
+        <v-btn text color="black" @click="reveal = true">See List <v-icon medium>launch</v-icon></v-btn>
+      </v-card-actions>
+      <v-expand-transition>
+        <v-card v-if="reveal" color="primary" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
+          <v-card-text>
+            <v-list-item-content>
+              <v-list-item-title v-for="item in game.items">{{item}}<v-btn v-on:click="deleteIt(item)" icon color="red"><v-icon>mdi-close</v-icon></v-btn></v-list-item-title>
+            </v-list-item-content>
+            <add-game-item :game="game"></add-game-item>
+          </v-card-text>
+          <v-card-actions class="pt-0 justify-center">
+            <v-btn text color="teal accent-4" @click="reveal = false">Close</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-expand-transition>
+      </v-card>
     `
 })
 
-Vue.component('DisplayPicture', {
-    props: {
-
-    },
-
-    template: `<div>
-    <h3 v-for="(item, i) in item" :key="item.name">{{item.name}}</h3>
-    </div>`,
-})
-
-Vue.component('DisplayGameTitle', {
-    props: {
-
-    },
-
-    template: `<div>
-    
-    </div>`,
-})
-
 Vue.component('add-game-item', {
+    props: {
+        game: Object
+    },
 
     data() {
         return {
             dialog: false,
             name: '',
-            gameType: '',
+
+            rules: {
+                required: value => !!value || 'Required.',
+            },
         }
     },
 
     methods: {
         addGameItem() {
-            this.$emit('add-item', {text: this.name, gameType: this.gameType});
+            if (this.name !== '') {
+                this.game.items.push(this.name);
+                this.dialog = false
+                this.name = ''
+            }
+            else {
+                this.dialog = true
+            }
         }
     },
 
@@ -86,14 +93,9 @@ Vue.component('add-game-item', {
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field label="Item*" v-model="name" required></v-text-field>
+                <v-text-field :rules="[rules.required]" label="Item*" v-model="name" required></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
-                <v-select v-model="gameType"
-                          :items="['Packer game', 'Bucks game', 'Brewer game']"
-                          label="Which game is this for*"
-                          required
-                ></v-select>
               </v-col>
             </v-row>
           </v-container>
@@ -106,18 +108,5 @@ Vue.component('add-game-item', {
         </v-card-actions>
       </v-card>
       </v-dialog>
-    `
-})
-
-Vue.component('delete-item', {
-
-    methods: {
-        removeItem(){
-            this.$emit('delete-item');
-        }
-    },
-
-    template: `
-    <v-btn v-on:click="removeItem" icon color="red"><v-icon>mdi-close</v-icon></v-btn>
     `
 })

@@ -20,33 +20,8 @@ const app = new Vue({
                 .addItem(new GameType('Bucks Game', "images/bucks.png", ['Jersey', 'Hat', 'Cash']))
                 .addItem(new GameType('Brewer Game', "images/brewers-logo-2020-2.jpg", ['Jersey', 'Hat', 'Cash', 'Baseball Glove'])),
 
-            active: false,
-            active2: false,
-            active3: false,
             dialog: false,
-            showPackerList: false,
-            showBucksList: false,
-            showBrewerList: false,
+            reveal: false,
         }
-    },
-
-    methods: {
-        mouseOver: function(){
-            this.active = !this.active;
-        },
-
-        addIt: function(newItem){
-            switch (newItem.gameType) {
-                case 'Packer game':
-                    this.items.push(newItem)
-                    break;
-                case 'Bucks game':
-                    this.bucksItems.push(newItem)
-                    break;
-                case 'Brewer game':
-                    this.brewerItems.push(newItem)
-                    break;
-            }
-        },
     },
 })

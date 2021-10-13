@@ -31,46 +31,10 @@
 
 
         <v-main color="secondary">
-            <v-flex>
-                <v-container>
-<!--                    <template>-->
-<!--                        <<v-row justify="center">-->
-<!--                            <add-game-item @add-item="addIt"></add-game-item>-->
-<!--                        </v-row>-->
-<!--                    </template>-->
-<!--                    <v-row class="mt-10">-->
-<!--                        <v-col sm="4">-->
-<!--                            <div id="packerGame">-->
-<!--                                <div v-show="active">A Packer Game!</div>-->
-<!--                            </div>-->
-<!--                            <v-img id="p" src="images/packers-logo-packers-funny.png" @mouseover="mouseOver" @click="showPackerList=!showPackerList"></v-img>-->
-<!--                            <div v-if="showPackerList">-->
-<!--                                <list class="mt-10" v-bind:items="items"></list>-->
-<!--                            </div>-->
-<!--                        </v-col>-->
-<!--                        <v-col sm="4">-->
-<!--                            <div id="bucksGame">-->
-<!--                                <div v-show="active2">A Bucks Game!</div>-->
-<!--                            </div>-->
-<!--                            <v-img id="b" src="images/bucks.png" @mouseover="active2=!active2" @click="showBucksList=!showBucksList"></v-img>-->
-<!--                            <div v-if="showBucksList">-->
-<!--                                <list class="mt-10" v-bind:items="bucksItems"></list>-->
-<!--                            </div>-->
-<!--                        </v-col>-->
-<!--                        <v-col sm="4">-->
-<!--                            <div id="brewerGame">-->
-<!--                                <div v-show="active3">A Brewer Game!</div>-->
-<!--                            </div>-->
-<!--                            <v-img id="b2" src="images/brewers-logo-2020-2.jpg" @mouseover="active3=!active3" @click="showBrewerList=!showBrewerList"></v-img>-->
-<!--                            <div v-if="showBrewerList">-->
-<!--                                <list class="mt-10" v-bind:items="brewerItems"></list>-->
-<!--                            </div>-->
-<!--                        </v-col>-->
-<!--                    </v-row>>-->
-                    <List></List>
-                </v-container>
-            </v-flex>
-        </v-main>
+            <v-container>
+                <display-game-items :game-items="list"></display-game-items>
+            </v-container>
+    </v-main>
 
         <!-- footer -->
         <v-footer color="primary" padless>

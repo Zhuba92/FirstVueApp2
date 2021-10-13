@@ -11,27 +11,6 @@
     font-size: x-large;
 }
 
-#packerGame {
-    text-align: center;
-    font-family: 'Stick No Bills', sans-serif;
-    font-size: 2em;
-    color: #244729;
-}
-
-#bucksGame {
-    text-align: center;
-    font-family: 'Stick No Bills', sans-serif;
-    font-size: 2em;
-    color: #00471a;
-}
-
-#brewerGame {
-    text-align: center;
-    font-family: 'Stick No Bills', sans-serif;
-    font-size: 2em;
-    color: #212c4c;
-}
-
 .v-card {
     text-align: center;
     font-family: 'Stick No Bills', sans-serif;
@@ -60,7 +39,4 @@ h3 {
     font-family: 'Stick No Bills', sans-serif;
 }
 
-#p, #b, #b2 {
-    cursor: pointer;
-}
 
