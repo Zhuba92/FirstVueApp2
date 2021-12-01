@@ -12,6 +12,12 @@
     color: black;
 }
 
+#checkboxLabel {
+    font-family: 'Stick No Bills', sans-serif;
+    font-size: large;
+    color: black;
+}
+
 .v-card {
     text-align: center;
     font-family: 'Stick No Bills', sans-serif;

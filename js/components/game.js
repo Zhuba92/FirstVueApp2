@@ -2,6 +2,8 @@ const DisplayGames = Vue.component('DisplayGames', {
     data() {
         return {
             sports: [],
+            checkbox: false,
+            oldSports: []
         }
     },
 
@@ -19,22 +21,58 @@ const DisplayGames = Vue.component('DisplayGames', {
     firestore: function() {
         return {
             sports: db.collection('sports').where('uid', '==', this.authUser.uid)
-                // .where('date', '<', Date.now().toLocaleString())
-                .orderBy('date')
+                .where('date', '>', (new Date().getFullYear().toString() + "-" + new Date().getMonth().toString() + "-" + new Date().getDate().toString()).toString())
+                .orderBy('date'),
+
+            oldSports: db.collection('sports').where('uid', '==', this.authUser.uid)
+                .where('date', '<', (new Date().getFullYear().toString() + "-" + new Date().getMonth().toString() + "-" + new Date().getDate().toString()).toString())
+                .orderBy('date'),
         }
     },
 
     template: `
       <v-col v-if="sports.length < 1 && loggedIn" :user="authUser" cols="7" class="mr-auto ml-auto mt-5">
+          <v-row class="justify-center mb-5">
+            <h2>My Games</h2>
+          </v-row>
           <v-row class="justify-center">
             <h2><router-link to="/addGames">Add your first game!</router-link></h2><v-icon medium class="ml-1">login</v-icon>
           </v-row>
       </v-col>
-      <v-row v-else-if="loggedIn" :user="authUser">
-          <v-col v-for="game in sports" :key="game.id" cols="4">
+      <v-col v-else-if="(checkbox === false) && loggedIn" :user="authUser">
+          <v-row class="justify-center mt-2">
+            <h2>My Games</h2>
+          </v-row>
+          <v-row class="justify-center">
+            <v-checkbox v-model="checkbox" color="primary">
+              <template v-slot:label>
+                <span id="checkboxLabel">My Old Games  (Games with dates prior to today)</span>
+              </template>
+            </v-checkbox>
+          </v-row>
+          <v-row>
+              <v-col v-for="game in sports" :key="game.id" cols="4">
+                  <game :game="game"></game>
+              </v-col>
+          </v-row>
+      </v-col>
+      <v-col v-else-if="(checkbox === true) && loggedIn" :user="authUser">
+          <v-row class="justify-center mt-2">
+            <h2>My Games</h2>
+          </v-row>
+          <v-row class="justify-center">
+            <v-checkbox v-model="checkbox" color="primary">
+              <template v-slot:label>
+                <span id="checkboxLabel">My Old Games (Games with dates prior to today)</span>
+              </template>
+            </v-checkbox>
+          </v-row>
+          <v-row>
+            <v-col v-for="game in oldSports" :key="game.id" cols="4">
               <game :game="game"></game>
-          </v-col>
-      </v-row>
+            </v-col>
+          </v-row>
+      </v-col>
       <v-col v-else cols="7" class="mr-auto ml-auto mt-5">
           <v-row class="justify-center">
             <h2><router-link to="/login">Login to see your games</router-link></h2><v-icon medium class="ml-1">login</v-icon>
