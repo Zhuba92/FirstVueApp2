@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6c2d52e2-ddcf-4c1c-8952-a916eb9f1d6f" name="Changes" comment="Refactoring">
+      <change beforePath="$PROJECT_DIR$/.idea/FirstVueApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FirstVueApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app-models.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app-models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/components/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/components/game.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1yViGtcV8RpahFs01F863AWsF45" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JS 2 Angular" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zacha\OneDrive\Documents\WebstormProjects\FirstVueApp\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zacha\OneDrive\Documents\WebstormProjects\FirstVueApp\images" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c2d52e2-ddcf-4c1c-8952-a916eb9f1d6f" name="Changes" comment="" />
+      <created>1632343063959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632343063959</updated>
+      <workItem from="1632343065094" duration="466000" />
+      <workItem from="1632414902208" duration="163000" />
+      <workItem from="1632415099003" duration="143000" />
+      <workItem from="1632491990651" duration="26277000" />
+      <workItem from="1632664018500" duration="10115000" />
+      <workItem from="1632679412334" duration="10606000" />
+      <workItem from="1632768596538" duration="508000" />
+      <workItem from="1632835364976" duration="3726000" />
+      <workItem from="1632839635315" duration="273000" />
+      <workItem from="1632852527750" duration="11101000" />
+      <workItem from="1632947314767" duration="467000" />
+      <workItem from="1633015989890" duration="823000" />
+      <workItem from="1633372485496" duration="18000" />
+      <workItem from="1633379734240" duration="696000" />
+      <workItem from="1633544627736" duration="187000" />
+      <workItem from="1633549237079" duration="4043000" />
+      <workItem from="1633626563112" duration="14000" />
+      <workItem from="1633970132890" duration="212000" />
+      <workItem from="1633970984205" duration="2563000" />
+      <workItem from="1633980442123" duration="1037000" />
+      <workItem from="1634066912960" duration="391000" />
+      <workItem from="1634091453744" duration="5785000" />
+      <workItem from="1634133756693" duration="10474000" />
+      <workItem from="1634258507731" duration="117000" />
+      <workItem from="1634581084712" duration="2759000" />
+      <workItem from="1634589167021" duration="670000" />
+      <workItem from="1634754050418" duration="32000" />
+      <workItem from="1635970795941" duration="702000" />
+      <workItem from="1636399312430" duration="7357000" />
+      <workItem from="1636410378603" duration="564000" />
+      <workItem from="1636561114008" duration="29000" />
+      <workItem from="1636564659995" duration="75000" />
+      <workItem from="1636571614925" duration="4387000" />
+    </task>
+    <task id="LOCAL-00001" summary="Google fonts &amp; pointer over image">
+      <created>1633016753467</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633016753467</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Refactoring">
+      <created>1634067062098</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634067062098</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refactoring">
+      <created>1634145573269</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634145573269</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Google fonts &amp; pointer over image" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+  </component>
+</project>

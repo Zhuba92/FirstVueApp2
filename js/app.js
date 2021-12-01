@@ -1,7 +1,20 @@
 Vue.use(Vuetify);
+Vue.use(Vuefire);
+
+const router = new VueRouter({
+    routes: [
+        {path: '/', component: DisplayGames},
+        {name: 'home', path: '/home', component: DisplayGames},
+        {name: 'addGames', path: '/addGames', component: AddGames},
+        {name: 'register', path: '/register', component: Register},
+        {name: 'login', path: '/login', component: Login},
+    ],
+
+});
 
 const app = new Vue({
     el: '#app',
+    router,
     vuetify: new Vuetify({
         theme: {
             themes:{
@@ -13,15 +26,28 @@ const app = new Vue({
         }
     }),
 
-    data: function() {
+    data() {
         return {
-            list: new GameList()
-                .addItem(new GameType('Packer Game', "images/packers-logo-packers-funny.png", ['Jersey', 'Hat', 'Cash', 'Brats']))
-                .addItem(new GameType('Bucks Game', "images/bucks.png", ['Jersey', 'Hat', 'Cash']))
-                .addItem(new GameType('Brewer Game', "images/brewers-logo-2020-2.jpg", ['Jersey', 'Hat', 'Cash', 'Baseball Glove'])),
-
             dialog: false,
             reveal: false,
+            authUser: {uid: ''},
         }
     },
+
+    methods: {
+
+    },
+
+    created: function(){
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user){
+                console.log('Signed in as ', user);
+                this.authUser = new User(user);
+            } else {
+                console.log('Not signed in');
+                this.authUser = {uid: ''};
+            }
+        })
+    }
+
 })

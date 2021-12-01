@@ -11,5 +11,12 @@
     <orderEntry type="library" name="vue" level="application" />
     <orderEntry type="library" name="vuetify" level="application" />
     <orderEntry type="library" name="@mdi/font" level="application" />
+    <orderEntry type="library" name="firebase-app" level="application" />
+    <orderEntry type="library" name="animate.css" level="application" />
+    <orderEntry type="library" name="vuefire" level="application" />
+    <orderEntry type="library" name="firebase-app" level="application" />
+    <orderEntry type="library" name="animate.css" level="application" />
+    <orderEntry type="library" name="firebase" level="application" />
+    <orderEntry type="library" name="vue-router" level="application" />
   </component>
 </module>
