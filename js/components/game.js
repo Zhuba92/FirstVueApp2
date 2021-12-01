@@ -144,7 +144,7 @@ Vue.component('navbar', {
               <v-list-item-title><router-link to="/login">Login</router-link></v-list-item-title>
             </v-list-item>
 
-            <v-list-item v-if="authUser">
+            <v-list-item v-if="authUser && loggedIn">
               <v-list-item-icon>
                 <v-icon>logout</v-icon>
               </v-list-item-icon>
