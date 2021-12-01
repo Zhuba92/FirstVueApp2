@@ -125,7 +125,7 @@ const Register = Vue.component('register', {
         return {
             // u: new User
             email: '',
-            password: ''
+            password: '',
         }
     },
 
@@ -143,7 +143,7 @@ const Register = Vue.component('register', {
                         alert('Wrong password.');
                         this.$router.push('/login');
                     } else {
-                        alert(errorMessage);
+                        alert(error)
                     }
                     console.log(error);
                 });
