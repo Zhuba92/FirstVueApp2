@@ -321,8 +321,7 @@ Vue.component('Game', {
             <v-btn text color="black" @click="reveal = true">See List <v-icon medium>launch</v-icon></v-btn>
           </v-card-actions>
           <v-btn class="mt-2 mb-3" color="error" @click="remove">Delete Game</v-btn>
-          <v-expand-transition>
-            <v-card v-if="reveal"  class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;" color="primary">
+            <v-card v-if="reveal" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;" color="primary">
               <v-card-text style="height: 50%">
                 <v-row no-gutters v-for="item in game.items" style="height: 50px" justify="space-around">
                   <v-checkbox color="black">
@@ -339,7 +338,6 @@ Vue.component('Game', {
                 <v-btn text color="teal accent-4" @click="reveal = false">Close</v-btn>
               </v-card-actions>
             </v-card>
-          </v-expand-transition>
       </v-card>
     `
 })
