@@ -20,10 +20,12 @@ const DisplayGames = Vue.component('DisplayGames', {
 
     firestore: function() {
         return {
+            // return games that are coming up for the specific user
             sports: db.collection('sports').where('uid', '==', this.authUser.uid)
                 .where('date', '>', (new Date().getFullYear().toString() + "-" + new Date().getMonth().toString() + "-" + new Date().getDate().toString()).toString())
                 .orderBy('date'),
 
+            // return games that are prior to today's date for the specific user
             oldSports: db.collection('sports').where('uid', '==', this.authUser.uid)
                 .where('date', '<', (new Date().getFullYear().toString() + "-" + new Date().getMonth().toString() + "-" + new Date().getDate().toString()).toString())
                 .orderBy('date'),
@@ -31,6 +33,7 @@ const DisplayGames = Vue.component('DisplayGames', {
     },
 
     template: `
+      <!-- Different views based on the status of the checkbox and user login status-->
       <v-col v-if="sports.length < 1 && loggedIn" :user="authUser" cols="7" class="mr-auto ml-auto mt-5">
           <v-row class="justify-center mb-5">
             <h2>My Games</h2>
@@ -58,7 +61,7 @@ const DisplayGames = Vue.component('DisplayGames', {
       </v-col>
       <v-col v-else-if="(checkbox === true) && loggedIn && oldSports.length > 0" :user="authUser">
           <v-row class="justify-center mt-2">
-            <h2>My Games</h2>
+            <h2>My Old Games</h2>
           </v-row>
           <v-row class="justify-center">
             <v-checkbox v-model="checkbox" color="primary">
@@ -75,7 +78,7 @@ const DisplayGames = Vue.component('DisplayGames', {
       </v-col>
       <v-col v-else-if="(checkbox === true) && loggedIn && oldSports.length < 1" :user="authUser">
       <v-row class="justify-center mt-2">
-        <h2>My Games</h2>
+        <h2>My Old Games</h2>
       </v-row>
       <v-row class="justify-center">
         <v-checkbox v-model="checkbox" color="primary">
@@ -119,12 +122,13 @@ Vue.component('navbar', {
     }),
 
     template: `
+      <!-- Different navbar items are available depending on the logged in status of a user-->
       <v-card>
       <v-app-bar color="primary" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
         <v-toolbar-title class="ml-auto mr-auto"><v-icon large>sports_baseball</v-icon><strong id="site-title"> GET READY FOR THE GAME! </strong><v-icon large>sports_football</v-icon></v-toolbar-title>
       </v-app-bar>
-      <v-navigation-drawer height="280" v-model="drawer" absolute temporary class="secondary accent-4">
+      <v-navigation-drawer height="200" v-model="drawer" absolute temporary class="secondary accent-4">
         <v-list nav dense>
           <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
             <v-list-item v-if="loggedIn">
@@ -176,7 +180,6 @@ Vue.component('navbar', {
 const Register = Vue.component('register', {
     data() {
         return {
-            // u: new User
             email: '',
             password: '',
         }
@@ -186,6 +189,7 @@ const Register = Vue.component('register', {
         register(){
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
                 .then(() => {
+                    // Send user to login after registering
                     this.$router.push('/login');
                 })
                 .catch(function(error) {
@@ -230,6 +234,7 @@ const Login = Vue.component('login', {
         login() {
             firebase.auth().signInWithEmailAndPassword(this.email, this.password)
                 .then(() => {
+                    // send user to the home page after logging in
                     this.$router.push('/home');
                 })
                 .catch(error => {
@@ -240,7 +245,6 @@ const Login = Vue.component('login', {
 
     data() {
         return {
-            // u: new User
             email: '',
             password: ''
         }
@@ -286,6 +290,7 @@ Vue.component('Game', {
     methods: {
         deleteIt(item){
             if (item) {
+                // remove item from items arrary
                 db.collection('sports').doc(this.game.id).update({
                     items: firebase.firestore.FieldValue.arrayRemove(item)
                 })
@@ -293,11 +298,13 @@ Vue.component('Game', {
         },
 
         remove(){
+            // remove entire game from firebase
             storage.child('sports').child(this.game.id).delete();
             db.collection('sports').doc(this.game.id).delete();
         },
 
         formatDate (date) {
+            // format and display date in an easy to read way
             if (!date) return null
             const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
             var d = date.split('-');
@@ -354,6 +361,7 @@ Vue.component('add-game-item', {
 
     methods: {
         addGameItem() {
+            // add game item to its specific list
             if (this.name !== '') {
                 db.collection('sports').doc(this.game.id).update({
                     items: firebase.firestore.FieldValue.arrayUnion(this.name)
@@ -420,6 +428,7 @@ const AddGames = Vue.component('addGames', {
 
     methods: {
         addGame(){
+            // add game to a specific users collection
             this.game.gameType.uid = this.authUser.uid
             db.collection('sports')
                 .add(this.game.gameType)
@@ -462,6 +471,7 @@ const AddGames = Vue.component('addGames', {
         },
 
         createItem(){
+            // add item to the items array
             this.game.gameType.items.push('');
         },
     },
