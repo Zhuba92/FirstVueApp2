@@ -56,7 +56,7 @@ const DisplayGames = Vue.component('DisplayGames', {
               </v-col>
           </v-row>
       </v-col>
-      <v-col v-else-if="(checkbox === true) && loggedIn" :user="authUser">
+      <v-col v-else-if="(checkbox === true) && loggedIn && oldSports.length > 0" :user="authUser">
           <v-row class="justify-center mt-2">
             <h2>My Games</h2>
           </v-row>
@@ -72,6 +72,21 @@ const DisplayGames = Vue.component('DisplayGames', {
               <game :game="game"></game>
             </v-col>
           </v-row>
+      </v-col>
+      <v-col v-else-if="(checkbox === true) && loggedIn && oldSports.length < 1" :user="authUser">
+      <v-row class="justify-center mt-2">
+        <h2>My Games</h2>
+      </v-row>
+      <v-row class="justify-center">
+        <v-checkbox v-model="checkbox" color="primary">
+          <template v-slot:label>
+            <span id="checkboxLabel">My Old Games (Games with dates prior to today)</span>
+          </template>
+        </v-checkbox>
+      </v-row>
+      <v-row class="justify-center">
+        <h2>No old games to see</h2>
+      </v-row>
       </v-col>
       <v-col v-else cols="7" class="mr-auto ml-auto mt-5">
           <v-row class="justify-center">
