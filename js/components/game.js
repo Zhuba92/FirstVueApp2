@@ -19,7 +19,7 @@ const DisplayGames = Vue.component('DisplayGames', {
     firestore: function() {
         return {
             sports: db.collection('sports').where('uid', '==', this.authUser.uid)
-                .where('date', '<', Date.now().toLocaleString())
+                // .where('date', '<', Date.now().toLocaleString())
                 .orderBy('date')
         }
     },
@@ -82,7 +82,7 @@ Vue.component('navbar', {
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
-              <v-list-item-title><router-link to="/home">Home</router-link></v-list-item-title>
+              <v-list-item-title><router-link to="/home">My Games</router-link></v-list-item-title>
             </v-list-item>
 
             <v-list-item v-if="!loggedIn">
