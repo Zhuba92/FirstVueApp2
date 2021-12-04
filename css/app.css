@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.v-icon.v-icon {
+    color: black;
+}
+
 .v-footer {
     font-family: 'Stick No Bills', sans-serif;
 }

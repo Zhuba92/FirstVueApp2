@@ -214,10 +214,10 @@ const Register = Vue.component('register', {
       </v-row>
       <v-col cols="5" class="mr-auto ml-auto mt-5">
           <v-row>
-            <v-text-field v-model="email" :rules="[v => !!v || 'Email is required']" label="Email address" outlined solo-inverted required></v-text-field>
+            <v-text-field v-model="email" :rules="[v => !!v || 'Email is required']" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
-            <v-text-field v-model="password" :rules="[v => !!v || 'Password is required']" label="Password" outlined solo-inverted required></v-text-field>
+            <v-text-field v-model="password" :rules="[v => !!v || 'Password is required']" label="Password" prepend-icon="mdi-lock" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
             <v-row justify="center">
@@ -257,10 +257,10 @@ const Login = Vue.component('login', {
       </v-row>
       <v-col cols="5" class="mr-auto ml-auto mt-5">
           <v-row>
-            <v-text-field v-model="email" label="Email address" outlined solo-inverted required></v-text-field>
+            <v-text-field v-model="email" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
-            <v-text-field v-model="password" label="Password" outlined solo-inverted required></v-text-field>
+            <v-text-field v-model="password" label="Password" prepend-icon="mdi-lock" type="password" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
           <v-row justify="center">
