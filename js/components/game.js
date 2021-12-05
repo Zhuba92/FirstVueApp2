@@ -125,7 +125,7 @@ Vue.component('navbar', {
       <!-- Different navbar items are available depending on the logged in status of a user-->
       <v-card>
       <v-app-bar color="primary" dark>
-        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="drawer = true" color="black"></v-app-bar-nav-icon>
         <v-toolbar-title class="ml-auto mr-auto"><v-icon large>sports_baseball</v-icon><strong id="site-title"> GET READY FOR THE GAME! </strong><v-icon large>sports_football</v-icon></v-toolbar-title>
       </v-app-bar>
       <v-navigation-drawer height="200" v-model="drawer" absolute temporary class="secondary accent-4">
@@ -167,7 +167,7 @@ Vue.component('navbar', {
               <v-list-item-icon>
                 <v-icon>logout</v-icon>
               </v-list-item-icon>
-              <v-list-item-title><v-btn @click="logout">Logout</v-btn></v-list-item-title>
+              <v-list-item-title><v-btn @click="logout" color="primary" style="color: black;">Logout</v-btn></v-list-item-title>
             </v-list-item>
             
           </v-list-item-group>
@@ -210,7 +210,7 @@ const Register = Vue.component('register', {
     template: `
       <v-form>
       <v-row class="justify-center mt-5">
-        <h2>Create an account</h2>
+        <h2>Create Account</h2>
       </v-row>
       <v-col cols="5" class="mr-auto ml-auto mt-5">
           <v-row>
@@ -221,7 +221,7 @@ const Register = Vue.component('register', {
           </v-row>
           <v-row>
             <v-row justify="center">
-              <v-btn @click="register" class="mt-4">Register</v-btn>
+              <v-btn @click="register" class="mt-4" color="primary" style="color: black;">Register</v-btn>
             </v-row>
           </v-row>
       </v-col>
@@ -264,7 +264,7 @@ const Login = Vue.component('login', {
           </v-row>
           <v-row>
           <v-row justify="center">
-            <v-btn @click="login" class="mt-4">Sign In</v-btn>
+            <v-btn @click="login" class="mt-4" color="primary" style="color: black;">Sign In</v-btn>
           </v-row>
           </v-row>
       </v-col>
@@ -380,13 +380,13 @@ Vue.component('add-game-item', {
       </template>
       <v-card color="primary">
         <v-card-title class="justify-center">
-          <span class="text-h5">Add an item</span>
+          <span class="text-h5"><h2>Add An Item</h2></span>
         </v-card-title>
         <v-card-text>
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field :rules="[rules.required]" label="Item*" v-model="name" required></v-text-field>
+                <v-text-field :rules="[rules.required]" label="Item*" v-model="name" prepend-icon="mdi-plus-thick" clearable outlined solo-inverted required></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
               </v-col>
@@ -479,9 +479,9 @@ const AddGames = Vue.component('addGames', {
           <v-row v-if="loggedIn" class="justify-center mt-5">
               <h2>Add a game to your schedule</h2>
           </v-row>
-          <v-col cols="4" class="mr-auto ml-auto mt-5" v-if="loggedIn">
+          <v-col cols="5" class="mr-auto ml-auto mt-5" v-if="loggedIn">
               <v-row class="justify-start">
-                <v-text-field v-model="game.gameType.name" :rules="[v => !!v || 'Title is required']" label="Enter game name" outlined solo-inverted required></v-text-field>
+                <v-text-field v-model="game.gameType.name" :rules="[v => !!v || 'Title is required']" label="Enter game name" clearable outlined solo-inverted required></v-text-field>
               </v-row>
               <v-row>
                 <v-file-input class="mb-5" v-model="game.image" accept="image/*" label="Image to represent your game" outlined solo-inverted required></v-file-input>
@@ -492,9 +492,9 @@ const AddGames = Vue.component('addGames', {
               <v-row>
                 <v-col cols="4">
                   <v-row v-for="(item,i) in game.gameType.items">
-                    <v-text-field v-model="game.gameType.items[i]" :key="i" label="Item for the game*" outlined solo-inverted required></v-text-field>
+                    <v-text-field v-model="game.gameType.items[i]" :key="i" label="Item*" outlined solo-inverted required></v-text-field>
                   </v-row>
-                  <v-btn @click="createItem" color="primary">Add item</v-btn>
+                  <v-btn @click="createItem" color="primary" style="color: black;"><v-icon>add</v-icon>Add item</v-btn>
                 </v-col>
               </v-row>
               <v-row>
