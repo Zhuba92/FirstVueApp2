@@ -126,7 +126,7 @@ Vue.component('navbar', {
       <v-card>
       <v-app-bar color="primary" dark>
         <v-app-bar-nav-icon @click="drawer = true" color="black"></v-app-bar-nav-icon>
-        <v-toolbar-title class="ml-auto mr-auto"><v-icon large>sports_baseball</v-icon><strong id="site-title"> GET READY FOR THE GAME! </strong><v-icon large>sports_football</v-icon></v-toolbar-title>
+        <v-toolbar-title class="ml-auto mr-auto"><v-icon large>sports_baseball</v-icon><strong id="site-title" class="site-title"> GET READY FOR THE GAME! </strong><v-icon large class="site-title">sports_football</v-icon></v-toolbar-title>
       </v-app-bar>
       <v-navigation-drawer height="200" v-model="drawer" absolute temporary class="secondary accent-4">
         <v-list nav dense>
@@ -315,7 +315,7 @@ Vue.component('Game', {
 
     template:`
       <v-card color="#a9a9a9" outlined>
-          <v-card-title class="animate__animated animate__heartBeat animate__delay-1s animate__slower 3s animate__repeat-3 3 justify-center">{{game.name}}<br>{{formatDate(game.date)}}</v-card-title>
+          <v-card-title class="animate__animated animate__heartBeat animate__delay-1s animate__slower 3s animate__repeat-1 1 justify-center">{{game.name}}<br>{{formatDate(game.date)}}</v-card-title>
           <v-img class="rounded-lg" :src="game.image"></v-img>
           <v-card-actions class="justify-center">
             <v-btn text color="black" @click="reveal = true">See List <v-icon medium>launch</v-icon></v-btn>
