@@ -129,7 +129,7 @@ Vue.component('navbar', {
         <v-app-bar-nav-icon @click="drawer = true" style="position: absolute;" color="black"></v-app-bar-nav-icon>
         <v-toolbar-title style="width: 100%" class="ml-auto mr-auto"><strong id="site-title">
           <v-icon class="site-titler" large>sports_baseball</v-icon>
-          GET READY FOR THE GAME!
+            <router-link to="/home" style="color: black; text-decoration: none; font-size: larger;">GET READY FOR THE GAME!</router-link>
           <v-icon large class="site-title">sports_football</v-icon></strong>
         </v-toolbar-title>
       </v-app-bar>
