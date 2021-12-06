@@ -214,7 +214,7 @@ const Register = Vue.component('register', {
       </v-row>
       <v-col cols="5" class="mr-auto ml-auto mt-5">
           <v-row>
-            <v-text-field v-model="email" :rules="[v => !!v || 'Email is required']" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
+            <v-text-field autofocus v-model="email" :rules="[v => !!v || 'Email is required']" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
             <v-text-field v-model="password" :rules="[v => !!v || 'Password is required']" label="Password" prepend-icon="mdi-lock" clearable outlined solo-inverted required></v-text-field>
@@ -257,7 +257,7 @@ const Login = Vue.component('login', {
       </v-row>
       <v-col cols="5" class="mr-auto ml-auto mt-5">
           <v-row>
-            <v-text-field v-model="email" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
+            <v-text-field autofocus v-model="email" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
             <v-text-field v-model="password" label="Password" prepend-icon="mdi-lock" type="password" clearable outlined solo-inverted required></v-text-field>
@@ -386,7 +386,7 @@ Vue.component('add-game-item', {
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field :rules="[rules.required]" label="Item*" v-model="name" prepend-icon="mdi-plus-thick" clearable outlined solo-inverted required></v-text-field>
+                <v-text-field autofocus :rules="[rules.required]" label="Item*" v-model="name" prepend-icon="mdi-plus-thick" clearable outlined solo-inverted required></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
               </v-col>
@@ -481,7 +481,7 @@ const AddGames = Vue.component('addGames', {
           </v-row>
           <v-col cols="5" class="mr-auto ml-auto mt-5" v-if="loggedIn">
               <v-row class="justify-start">
-                <v-text-field v-model="game.gameType.name" :rules="[v => !!v || 'Title is required']" label="Enter game name" clearable outlined solo-inverted required></v-text-field>
+                <v-text-field autofocus v-model="game.gameType.name" :rules="[v => !!v || 'Title is required']" label="Enter game name" prepend-icon="mdi-stadium" clearable outlined solo-inverted required></v-text-field>
               </v-row>
               <v-row>
                 <v-file-input class="mb-5" v-model="game.image" accept="image/*" label="Image to represent your game" outlined solo-inverted required></v-file-input>
@@ -492,7 +492,7 @@ const AddGames = Vue.component('addGames', {
               <v-row>
                 <v-col cols="4">
                   <v-row v-for="(item,i) in game.gameType.items">
-                    <v-text-field v-model="game.gameType.items[i]" :key="i" label="Item*" outlined solo-inverted required></v-text-field>
+                    <v-text-field v-model="game.gameType.items[i]" :key="i" label="Item*" prepend-icon="mdi-bookmark-plus" outlined solo-inverted required></v-text-field>
                   </v-row>
                   <v-btn @click="createItem" color="primary" style="color: black;"><v-icon>add</v-icon>Add item</v-btn>
                 </v-col>
