@@ -4,20 +4,51 @@
 }
 
 .site-title {
-    animation-duration: 16s;
-    animation-name: slidein;
-    animation-iteration-count: infinite;
+    animation: slidein 11s infinite linear;
+}
+
+.v-application--is-ltr .v-toolbar__content>.v-btn.v-btn--icon:first-child+.v-toolbar__title, .v-application--is-ltr .v-toolbar__extension>.v-btn.v-btn--icon:first-child+.v-toolbar__title {
+    padding-left: 0px;
+}
+
+.site-titler {
+    animation: slideinR 11s infinite linear;
 }
 
 @keyframes slidein {
     0% {
-        margin-left: 0%;
+        transform: translateX(0) rotate(0);
     }
     50% {
-        margin-left: 300px;
+        transform: translateX(800%) rotate(720deg);
     }
     100% {
-        margin-left: 0%;
+        transform: translateX(0) rotate(1440deg);
+    }
+}
+
+@keyframes slideinR {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+    50% {
+        transform: translateX(-800%) rotate(720deg);
+    }
+    100% {
+        transform: translateX(0) rotate(1440deg);
+    }
+}
+
+.rotate {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1080deg);
     }
 }
 

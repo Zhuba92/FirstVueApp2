@@ -39,7 +39,8 @@ const DisplayGames = Vue.component('DisplayGames', {
             <h2>My Games</h2>
           </v-row>
           <v-row class="justify-center">
-            <h2><router-link to="/addGames">Add your first game!</router-link></h2><v-icon medium class="ml-1">login</v-icon>
+            <v-btn style="background-color: black;"><h2><router-link to="/addGames">Add your first game!</router-link></h2>
+              <v-icon medium class="ml-1" color="primary">login</v-icon></v-btn>
           </v-row>
       </v-col>
       <v-col v-else-if="(checkbox === false) && loggedIn" :user="authUser">
@@ -93,7 +94,7 @@ const DisplayGames = Vue.component('DisplayGames', {
       </v-col>
       <v-col v-else cols="7" class="mr-auto ml-auto mt-5">
           <v-row class="justify-center">
-            <h2><router-link to="/login">Login to see your games</router-link></h2><v-icon medium class="ml-1">login</v-icon>
+            <v-btn style="background-color: black;"><h2><router-link to="/login">Login to see your games</router-link></h2><v-icon medium class="ml-1" color="primary">login</v-icon></v-btn>
           </v-row>
       </v-col>
     `
@@ -125,8 +126,12 @@ Vue.component('navbar', {
       <!-- Different navbar items are available depending on the logged in status of a user-->
       <v-card>
       <v-app-bar color="primary" dark>
-        <v-app-bar-nav-icon @click="drawer = true" color="black"></v-app-bar-nav-icon>
-        <v-toolbar-title class="ml-auto mr-auto"><v-icon large>sports_baseball</v-icon><strong id="site-title" class="site-title"> GET READY FOR THE GAME! </strong><v-icon large class="site-title">sports_football</v-icon></v-toolbar-title>
+        <v-app-bar-nav-icon @click="drawer = true" style="position: absolute;" color="black"></v-app-bar-nav-icon>
+        <v-toolbar-title style="width: 100%" class="ml-auto mr-auto"><strong id="site-title">
+          <v-icon class="site-titler" large>sports_baseball</v-icon>
+          GET READY FOR THE GAME!
+          <v-icon large class="site-title">sports_football</v-icon></strong>
+        </v-toolbar-title>
       </v-app-bar>
       <v-navigation-drawer height="200" v-model="drawer" absolute temporary class="secondary accent-4">
         <v-list nav dense>
@@ -139,28 +144,28 @@ Vue.component('navbar', {
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
-              <v-list-item-title><router-link to="/home">My Games</router-link></v-list-item-title>
+              <v-list-item-title><router-link to="/home" style="color: black; font-size: large;">My Games</router-link></v-list-item-title>
             </v-list-item>
 
             <v-list-item v-if="!loggedIn">
               <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
-              <v-list-item-title><router-link to="/register">Register</router-link></v-list-item-title>
+              <v-list-item-title><router-link to="/register" style="color: black; font-size: large;">Register</router-link></v-list-item-title>
             </v-list-item>
 
             <v-list-item v-if="loggedIn">
               <v-list-item-icon>
                 <v-icon>sports</v-icon>
               </v-list-item-icon>
-              <v-list-item-title><router-link to="/addGames">Add a game</router-link></v-list-item-title>
+              <v-list-item-title><router-link to="/addGames" style="color: black; font-size: large;">Add a game</router-link></v-list-item-title>
             </v-list-item>
 
             <v-list-item v-if="!loggedIn">
               <v-list-item-icon>
                 <v-icon>login</v-icon>
               </v-list-item-icon>
-              <v-list-item-title><router-link to="/login">Login</router-link></v-list-item-title>
+              <v-list-item-title><router-link to="/login" style="color: black; font-size: large;">Login</router-link></v-list-item-title>
             </v-list-item>
 
             <v-list-item v-if="authUser && loggedIn">
@@ -214,10 +219,12 @@ const Register = Vue.component('register', {
       </v-row>
       <v-col cols="5" class="mr-auto ml-auto mt-5">
           <v-row>
-            <v-text-field autofocus v-model="email" :rules="[v => !!v || 'Email is required']" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
+            <v-text-field autofocus v-model="email" :rules="[v => !!v || 'Email is required']" 
+                          label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
-            <v-text-field v-model="password" :rules="[v => !!v || 'Password is required']" label="Password" prepend-icon="mdi-lock" clearable outlined solo-inverted required></v-text-field>
+            <v-text-field v-model="password" :rules="[v => !!v || 'Password is required']" 
+                          label="Password" prepend-icon="mdi-lock" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
             <v-row justify="center">
@@ -257,10 +264,12 @@ const Login = Vue.component('login', {
       </v-row>
       <v-col cols="5" class="mr-auto ml-auto mt-5">
           <v-row>
-            <v-text-field autofocus v-model="email" label="Email address" prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
+            <v-text-field autofocus v-model="email" label="Email address" 
+                          prepend-icon="mdi-email" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
-            <v-text-field v-model="password" label="Password" prepend-icon="mdi-lock" type="password" clearable outlined solo-inverted required></v-text-field>
+            <v-text-field v-model="password" label="Password" 
+                          prepend-icon="mdi-lock" type="password" clearable outlined solo-inverted required></v-text-field>
           </v-row>
           <v-row>
           <v-row justify="center">
@@ -270,7 +279,8 @@ const Login = Vue.component('login', {
       </v-col>
       <v-col cols="5" class="mr-auto ml-auto mt-10">
         <v-row class="justify-center">
-          <h2><router-link to="/register">Register</router-link></h2><v-icon medium class="ml-1">login</v-icon>
+          <v-btn style="background-color: black;"><h2><router-link to="/register">Register</router-link></h2>
+            <v-icon medium class="ml-1" color="primary">login</v-icon></v-btn>
         </v-row>
       </v-col>
       </v-form>
@@ -315,7 +325,8 @@ Vue.component('Game', {
 
     template:`
       <v-card color="#a9a9a9" outlined>
-          <v-card-title class="animate__animated animate__heartBeat animate__delay-1s animate__slower 3s animate__repeat-1 1 justify-center">{{game.name}}<br>{{formatDate(game.date)}}</v-card-title>
+          <v-card-title class="animate__animated animate__heartBeat animate__delay-1s animate__slower 3s animate__repeat-1 1 justify-center">{{game.name}}
+            <br>{{formatDate(game.date)}}</v-card-title>
           <v-img class="rounded-lg" :src="game.image"></v-img>
           <v-card-actions class="justify-center">
             <v-btn text color="black" @click="reveal = true">See List <v-icon medium>launch</v-icon></v-btn>
@@ -386,7 +397,8 @@ Vue.component('add-game-item', {
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field autofocus :rules="[rules.required]" label="Item*" v-model="name" prepend-icon="mdi-plus-thick" clearable outlined solo-inverted required></v-text-field>
+                <v-text-field autofocus :rules="[rules.required]" label="Item*" v-model="name" 
+                              prepend-icon="mdi-plus-thick" clearable outlined solo-inverted required></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
               </v-col>
@@ -481,18 +493,23 @@ const AddGames = Vue.component('addGames', {
           </v-row>
           <v-col cols="5" class="mr-auto ml-auto mt-5" v-if="loggedIn">
               <v-row class="justify-start">
-                <v-text-field autofocus v-model="game.gameType.name" :rules="[v => !!v || 'Title is required']" label="Enter game name" prepend-icon="mdi-stadium" clearable outlined solo-inverted required></v-text-field>
+                <v-text-field autofocus v-model="game.gameType.name" :rules="[v => !!v || 'Title is required']" 
+                              label="Enter game name" prepend-icon="mdi-stadium" clearable outlined solo-inverted required></v-text-field>
               </v-row>
               <v-row>
-                <v-file-input class="mb-5" v-model="game.image" accept="image/*" label="Image to represent your game" outlined solo-inverted required></v-file-input>
+                <v-file-input class="mb-5" v-model="game.image" accept="image/*" 
+                              label="Image to represent your game" outlined solo-inverted required></v-file-input>
               </v-row>
               <v-row>
-                  <v-date-picker class="mb-5" :rules="[v => !!v || 'Date is required']" full-width year-icon="mdi-calendar-blank" prev-icon="mdi-skip-previous" next-icon="mdi-skip-next" elevation="15" v-model="game.gameType.date" required></v-date-picker>
+                  <v-date-picker class="mb-5" :rules="[v => !!v || 'Date is required']" full-width year-icon="mdi-calendar-blank" 
+                                 prev-icon="mdi-skip-previous" next-icon="mdi-skip-next" elevation="15" v-model="game.gameType.date" required>
+                  </v-date-picker>
               </v-row>
               <v-row>
                 <v-col cols="4">
                   <v-row v-for="(item,i) in game.gameType.items">
-                    <v-text-field v-model="game.gameType.items[i]" :key="i" label="Item*" prepend-icon="mdi-bookmark-plus" outlined solo-inverted required></v-text-field>
+                    <v-text-field v-model="game.gameType.items[i]" :key="i" label="Item*" prepend-icon="mdi-bookmark-plus" 
+                                  outlined solo-inverted required></v-text-field>
                   </v-row>
                   <v-btn @click="createItem" color="primary" style="color: black;"><v-icon>add</v-icon>Add item</v-btn>
                 </v-col>
